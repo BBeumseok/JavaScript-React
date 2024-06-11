@@ -1,0 +1,169 @@
+- REACT란?
+자바스크립트 라이브러리
+
+구조는 MVC, MVVM과 같은 프레임워크와 다르게 오직 View만 처리...
+
+- SPA 구조
+Single Page Application의 줄임말
+대규모 망의 경우 SPA 구조는 부하가 많아짐 -> 소규모 망에서 많이 사용
+index.html 하나만 로드하고 실행시키는 구조
+
+- REACT 구동
+> 번들러(Webpack)이 모든 것을 동작시켜 준다.
+
+>Webpack이란 어플리케이션을 동작시키는데 필요한 자원(JS파일들, CSS, image 등)을
+  하나로 묶어서 조합하여 경량화한 후 결과를 보여주는 도구
+
+> 번들러는 node.js를 통해서 직접 설정이 가능하지만, 리액트 프로젝트 생성 시 자동으로
+  포함되어 동작.  
+
+- DOM(Document Object Model) ?
+> HTML을 이해하기 쉽도록 트리 구조로 만들어진 태그(객체)들을 의미함.
+  HTML 방식이 아닌 다른 방식으로 접근시에 사용되는 구조.
+
+- 리액트의 Virtual DOM이란?
+만약에 서버에서 어떤 값에 따라서 화면을 동적으로 변화시킨다면
+ex) document.getElementBy("xx").innerHTML = "<태그>변경</태그>
+
+위 예시같은 코드 규칙들이 많아질 것이다.
+실제 서비스에서 이런 기능들이 많은 경우, 관리하기 힘들어진다.
+그래서, facebook에서 view의 상태가 바뀌었을 때 그에 따라서 DOM을 어떻게 업데이트를
+할지 규칙을 정하는 것이라 다 버리고, 처음부터 모든 것을 새로 만들어 보여주면 어떨까?
+화면 전체를 다시 보여준다는 것은 그 처리 시간을 소요한다는 의미가 된다.
+리액트 Virtual DOM은 이런 문제를 해결한다.
+어떻게 바뀐 부분만 부분적으로 리렌더(Rerender)하여 사용한다.
+> Virtual DOM은 메모리에 있는 데이터
+
+
+==================================================================
+패키지 관리자 명령문 이해하기
+- nmp / npx / yarn(기본설치 X) 들은 모두 node 프로젝트에서 
+  설치되는 패키지 관리 툴
+
+1. npm
+  - 자바스크립트 런타임 환경 Node.js의 기본 패키지 
+  관리자(node package manager)
+  - 자바 스크립트 환경에서 프로젝트를 시작할 때 node와 함께 설치하라는 
+  Getting Started가 많고, 사용 빈도도 높다.
+--------
+  패키지 설치[-g] 옵션 사용 시 node.js에 기본설치 됨
+  npm install <패키지명>@<태그|버전|버전범위>
+  npm install은 package.json에 있는 패키지들을 설치.
+  npm install <패키지명>@<태그|버전|버전범위> : 특정 패키지 설치를 진행
+
+  ** package-lock.json을 기준으로 설치 : npm ci(i - install)
+
+  패키지 업데이트
+  npm update [[-g]패키지명1, 패키지명2, ...]
+  [-g] 옵션 사용 시... 전역 설치로 node.js에 설치 진행
+
+  패키지 삭제
+  npm uninstall [@scope/]패키지명[@verision] [-S|--save|--D|--save_dev|-O|--save-optional]
+  npm remove
+  npm rm
+
+2. npx
+  - npx(executed npm binaries)는 npm에 속해 있는 패키지 실행 도구입니다.
+  - npx는 패키지 실행 도구라는 점이 npm과 차이점
+  - 다른 사람의 git에 있는 프로젝트를 다운 받아서 package.json의 script 중
+  하나를 실행하고 싶을 때, 패키지가 설치되어야 한다.
+  이럴 때, npx와 스크립트를 적으면 패키지 설치를 하지않고 실행이 가능하다.
+
+  3. yarn
+  - 안전하고, 안정적으로 재현 가능한 프로젝트.
+  - yarn은 npm, npx와 결을 달리하는 패키지 관리자
+  - 속도나 안정성에서 npm과 비슷하거나 더 나은 효과를 가져온다.
+  - 차이점이 버전을 어디에서나 같게 만들어서 버그를 줄여주고, 보안성이 높다는 점
+  - yarn은 기본적으로 설치되어 있지 않다. 따라서 yarn 패키지 관리자를 설치해야 한다.
+
+  의존성(패키지) 설치 (npm install) : yarn
+  패키지 설치 (npm install 패키지명) : yarn add 패키지명
+  패키지 업데이트 (npm update 패키지명) : yarn upgrade
+  패키지 삭제 (npm uninstall 패키지명) : yarn remove 패키지명
+  프로젝트 초기화 (npm init) : yarn init
+  스크립트 실행 (npm run) : yarn run
+  bin 패키지 실행(npx 패키지 명령어) : yarn 패키지 명령어
+  
+  App
+  import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+- return (JSX) 문장을 반환
+- export default App으로 모듈을 내보내고 있음
+- index.js 파일에서 <App />으로 내보내진 App을 사용
+
+** JSX란?
+JS의 확장 문법으로 HTML에 JS 코드를 녹아낸 형태
+- 리액트의 생김새를 정의할 때 사용되는 문법으로 볼 수 있다.
+  HTML과 같아보이지만 실제로는 Javascript이다.
+  XML 형태로 코드를 작성하게 되면 babel이 JSX를 javascript로 변환해준다.
+- 코드를 수정하게 될 때 자동으로 화면이 리렌더링 된다. (Webpack Loader 동작)
+
+- Webpack Loader는 직접 설정이 가능하고, create react-app 생성 시 자동으로 설정
+
+** Webpack Loader는 다양한 종류가 있다.
+1. CSS 로더 : CSS를 로드
+2. File 로더 : font, image, file 등을 로드
+3. Babel 로더 : ES6 문법을 화면에 사용할 ES5 문법으로 다운그레이드 하여 변환.
+  설정 파일은 WebpackConfig.js 
+
+-----------------
+### React의 JSX 문법(기본 규칙)
+1. JSX의 주석 처리 (vs code: alt + shift + a) ex) /* rel = "noopener noreferrer"*/
+2. JSX 문법 - 반드시 하나의 태그를 return 해야 한다.
+3. div를 사용하기 싫으면 Fragment Component를 이용해서 처리해야 한다. (빈 깡통 태그)
+4. 함수 안에서 만들어진 변수는 중괄호를 사용하여 참조할 수 있음.
+  ex) {name}
+
+5. if문 대신에 삼항 연산자를 이용함
+6. 화면에 보여주고 싶은게 없다면 null을 이용한다. (return null)
+7. undefined를 반환하는 상황을 만들면 안된다.
+8. DOM 요소에 스타일을 직접 넣을 때는 반드시 객체형 개체로 묶고, 속성은 카멜표기법을
+  사용한다.
+9. 태그의 class 속성은 className을 사용하여 적용.
+10. HTML에서 홀로 사용하는 태그는 닫는 태그를 반드시 작성  
+  ex) <br> => <br> </br> or <br />
+      <img> => <img> </img> or <img />
+
+## 컴포넌트(Component)
+- 컴포넌트는 일종의 UI 조각이라고 할 수 있다. 때문에 쉽게 재사용이 가능하다.
+- 리액트는 컴포넌트의 형태가 Tree 구조이다.
+- 컴포넌트는 함수형, 클래스형 2가지가 존재한다.
+
+[함수형 컴포넌트]
+function Welcome(props) {
+  return <h1> Hello, {props.name} </h1>
+}
+
+[클래스형 컴포넌트]
+class Welcome extends React.Component {
+  render() {
+    return <h1> Hello, {this.props.name} </h1>
+  }
+}
+
+### 조건부 렌더링
+조건부 렌더링이란? 특정 조건에 따라서 다른 결과물을 렌더링하는 것을 의미한다.
