@@ -9,9 +9,9 @@ Single Page Application의 줄임말
 index.html 하나만 로드하고 실행시키는 구조
 
 - REACT 구동
-> 번들러(Webpack)이 모든 것을 동작시켜 준다.
+> 번들러(Webpack)가 모든 것을 동작시켜 준다.
 
->Webpack이란 어플리케이션을 동작시키는데 필요한 자원(JS파일들, CSS, image 등)을
+> Webpack이란 어플리케이션을 동작시키는데 필요한 자원(JS파일들, CSS, image 등)을
   하나로 묶어서 조합하여 경량화한 후 결과를 보여주는 도구
 
 > 번들러는 node.js를 통해서 직접 설정이 가능하지만, 리액트 프로젝트 생성 시 자동으로
@@ -63,7 +63,7 @@ ex) document.getElementBy("xx").innerHTML = "<태그>변경</태그>
   npm rm
 
 2. npx
-  - npx(executed npm binaries)는 npm에 속해 있는 패키지 실행 도구입니다.
+  - npx(executed npm binaries)는 npm에 속해 있는 패키지 실행 도구이다.
   - npx는 패키지 실행 도구라는 점이 npm과 차이점
   - 다른 사람의 git에 있는 프로젝트를 다운 받아서 package.json의 script 중
   하나를 실행하고 싶을 때, 패키지가 설치되어야 한다.
@@ -134,7 +134,7 @@ JS의 확장 문법으로 HTML에 JS 코드를 녹아낸 형태
 ### React의 JSX 문법(기본 규칙)
 1. JSX의 주석 처리 (vs code: alt + shift + a) ex) /* rel = "noopener noreferrer"*/
 2. JSX 문법 - 반드시 하나의 태그를 return 해야 한다.
-3. div를 사용하기 싫으면 Fragment Component를 이용해서 처리해야 한다. (빈 깡통 태그)
+3. div를 사용하기 싫으면 Fragment Component를 이용해서 처리해야 한다. (빈 깡통 태그 <> </>)
 4. 함수 안에서 만들어진 변수는 중괄호를 사용하여 참조할 수 있음.
   ex) {name}
 
