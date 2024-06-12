@@ -1,35 +1,26 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 
-function UserList() {
-  const users = [
-    {
-      id: 1,
-      username: '홍길동',
-      email: 'hong@naver.com'
-    },
-    {
-      id: 2,
-      username: '이순신',
-      email: 'leeSS@naver.com'
-    },
-    {
-      id: 3,
-      username: '유관순',
-      email: 'Youks@naver.com'
-    }
-  ];
+//  User Component
+function User({user}) {
+  return (
+    <div>
+      <b>{user.username}</b> <span>({user.email})</span>  {/* 특정 패턴 반복 시 이런 형태로 사용 */}
+    </div>
+  );
+}
+
+function UserList({users}) {
 
   return (
     <div>
-      <div>
-        <b>{users[0].username}</b> <span>({users[0].email})</span>
-      </div>
-      <div>
-        <b>{users[1].username}</b> <span>({users[1].email})</span>
-      </div>
-      <div>
-        <b>{users[2].username}</b> <span>({users[2].email})</span>
-      </div>
+      {/* array.map() 함수를 이용한 컴포넌트 반복 */}
+      {/* {users.map(user => (
+        <User user={user} key={user.id} />
+      ))} */}
+      {/* 컴포넌트 내에 각각의 값들을 key 설정을 통해 구분함 */}
+      {users.map((user, index) => (
+        <User user={user} key={index} /> // key값을 인덱스 값으로 구분하여 확인
+      ))}
     </div>
   );
 }

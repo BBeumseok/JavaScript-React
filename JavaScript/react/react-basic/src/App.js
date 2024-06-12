@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import './App.css';
-import Wrapper from "./Wrapper";
+// import Wrapper from "./Wrapper";
 import PropTypes from "prop-types"; //prop타입 검증을 모듈..
-import StateComponent from './useState/StateTest';
-import Counter from './useState/Counter';
-import Mycomponent2 from './useState/MyComponent2';
-import EventComponent from './event/EventComponent';
-import InputSample from './event/InputSample';
-import EventComponent2 from './event/EventComponent2';
+// import StateComponent from './useState/StateTest';
+// import Counter from './useState/Counter';
+// import Mycomponent2 from './useState/MyComponent2';
+// import EventComponent from './event/EventComponent';
+// import InputSample from './event/InputSample';
+// import EventComponent2 from './event/EventComponent2';
 import UserList from './array/UserList';
+// import ArrayKey from './array/ArrayKey';
+// import InputSample2 from './array/InputSample2';
+import CreateUser from './array/CreateUser';
 
 
 function App() {
@@ -22,6 +25,66 @@ function App() {
         padding : '1rem'
     }
 
+    //  users 배열 객체를 useState로 변경 =>  
+    const [users, setUsers] = useState ([
+        {
+          id: 1,
+          username: '홍길동',
+          email: 'hong@naver.com'
+        },
+        {
+          id: 2,
+          username: '이순신',
+          email: 'leeSS@naver.com'
+        },
+        {
+          id: 3,
+          username: '유관순',
+          email: 'Youks@naver.com'
+        }
+      ]);
+
+      //    useState 입력값 처리를 위해서
+      const [inputs, setInputs] = useState({
+        username: '',
+        email: ''
+      });
+
+      const {username, email} = inputs;
+
+      const onChange = e => {
+        const {name, value} = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
+      }
+      //    useRef를 이용한 컴포넌트에서 사용할 변수 지정
+      //    useRef로 관리하는 변수는 값이 바뀐다고 해서 컴포넌트가 리렌더링 되지 않음
+      //    때문에 useRef로 관리하고 있는 변수는 설정 후 바로 조회 가능함
+      //    setTimeout, setInterval을 통해 만들어진 id
+      //    외부 라이브러리를 사용하여 생성된 인스턴스
+      //    scroll 위치
+      const nextId = useRef(4);
+      const onCreate = () => {  
+        //  나중에 구현할 배열에 항목 추가 로직
+        const user = {
+            id: nextId.current,
+            username,
+            email
+        };
+        //  추가
+        setUsers([...users, user]);
+
+        //  입력값 정리
+        setInputs({
+            username: '',
+            email: ''
+        });
+
+        nextId.current += 1;    //  onCreate가 동작하면, useRef에 현재값에 +1 처리
+      };
+
     return (
         <>
             {/* 2nd Day : useState 테스트 */}
@@ -30,7 +93,7 @@ function App() {
             <hr />
             <Counter />
             <hr /> */}
-            
+
             {/* 2nd Day : event */}
 {/*             <EventComponent />
             <EventComponent2 />
@@ -38,7 +101,18 @@ function App() {
             <hr /> */}
 
             {/* 2nd Day : Coponent Array */}
-            <UserList />
+            {/* <ArrayKey />
+            <InputSample2 />
+            <hr /> */}
+            <CreateUser
+                username={username}
+                email={email}
+                onChange={onChange}
+                onCreate={onCreate}
+            />
+            <UserList users={users} /> {/* 등록 사용자 출력 */}
+            
+            {/* 1st Day :  */}
             {/* <Wrapper>
             <Mycomponent name = {"홍길동"} age = {20} email = {"aaa@bbb.com"} isSpecial />
             <div className='test-box'>
