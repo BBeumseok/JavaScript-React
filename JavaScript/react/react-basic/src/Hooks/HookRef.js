@@ -21,6 +21,8 @@ function HookRef() {
 
     //  useRef의 사용 - current로 ref의 현재 태그에 접근 가능
     inputTag.current.focus();
+
+    // inputTag.current.type = 'email';
   }
 
   return (

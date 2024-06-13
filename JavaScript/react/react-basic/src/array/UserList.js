@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // User 컴포넌트
-function User({user, onRemove, onToggle}) {
+const User = React.memo (function User({user, onRemove, onToggle}) {
   /*
    마운트 시에 하는 작업들
   1. props로 받은 값을 컴포넌트의 로컬 상태로 설정
@@ -28,14 +28,14 @@ function User({user, onRemove, onToggle}) {
     의존성 배열에 특정 값이 있으면 언마운트 시에도 호출, 값이 바뀌기 직전에도
     호출됩니다.
   */
-  useEffect(() => {
-    console.log('user값이 설정됨');
-    console.log(user);
-    return () => {
-      console.log('user가 바뀌기 전');
-      console.log(user);
-    };
-  }, [user]);
+  // useEffect(() => {
+  //   console.log('user값이 설정됨');
+  //   console.log(user);
+  //   return () => {
+  //     console.log('user가 바뀌기 전');
+  //     console.log(user);
+  //   };
+  // }, [user]);
   /* 
     중요 !! 만약 useEffect() 안에서 사용하는 상태(state), props가 있다면
     useEffect()의 deps(의존성 배열)에 넣어주세요. 이게 규칙.
@@ -59,7 +59,7 @@ function User({user, onRemove, onToggle}) {
         <button onClick={() => onRemove(user.id)}>삭제</button>
     </div>
   );
-}
+})
 
 
 function UserList({users, onRemove, onToggle}) {
@@ -81,4 +81,4 @@ function UserList({users, onRemove, onToggle}) {
     </div>
   );
 }
-export default UserList;
+export default React.memo(UserList);
