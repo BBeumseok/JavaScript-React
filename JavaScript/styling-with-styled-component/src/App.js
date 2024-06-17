@@ -53,6 +53,10 @@ const onCancle = () => {
 };
 
   return (
+    /* 
+      theme을 설정하면 ThemeProvider 내부에 렌더링된 styled-components로
+      만든 컴포넌트에서 palette를 조회하여 사용할 수 있다.
+    */
     <ThemeProvider  /* 웹 사이트 디자인 시에 메인색상을 지정 */
       theme={{       
         palette: {

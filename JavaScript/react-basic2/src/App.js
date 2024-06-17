@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useReducer, useRef } from 'react';
+import React, { useCallback, useMemo, useReducer, useRef } from 'react';
 import './App.css';
 // import Counter from './Hooks/Counter';
 import CreateUser from './Hooks/CreateUser';
@@ -75,6 +75,10 @@ function reducer(state, action) {
   }
 }
 
+  //  24.06.17 
+  //  1. UserDispatch 라는 이름으로 Context를 내보내기
+  export const UserDispatch = React.createContext(null);
+  //  내보낸 후 사용할 경우 import { UserDispatch } from './App';
 
 function App() {
 
@@ -105,30 +109,35 @@ function App() {
     nextId.current += 1;
   }, [username, email, reset]);
 
-  const onToggle = useCallback(id => {
-    dispatch({
-      type: 'TOGGLE_USER',
-      id
-    });
-  }, []);
+  //  24.06.17 Context API 사용을 위한 주석 처리
+  // const onToggle = useCallback(id => {
+  //   dispatch({
+  //     type: 'TOGGLE_USER',
+  //     id
+  //   });
+  // }, []);
 
-  const onRemove = useCallback(id => {
-    dispatch({
-      type: 'REMOVE_USER',
-      id
-    });
-  }, []);
+  // const onRemove = useCallback(id => {
+  //   dispatch({
+  //     type: 'REMOVE_USER',
+  //     id
+  //   });
+  // }, []);
 
 
   const count = useMemo(() => countActiveUsers(users), [users] );
 
   return (
-    <>
-      <section className={styled.app_wrap}>
+    /* 24.06.17 Context API 사용 */
+    /* const [state, dispatch] = useReducer(reducer, initialState);에 dispatch를 의미함. */
+    /*  */
+    <UserDispatch.Provider value={dispatch}>
+
+      {/* <section className={styled.app_wrap}>
         <p className='title'>CSS모듈 디자인</p>
       </section>
       <br />
-      <hr />
+      <hr /> */}
       {/* <Counter /> */}
       <CreateUser 
         username={username} 
@@ -136,9 +145,10 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
+      {/* 24.06.17 UserList에 onRemove, onToggle 제거 */}
+      <UserList users={users} />
       <div>활성사용자 수 : {count}</div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 
