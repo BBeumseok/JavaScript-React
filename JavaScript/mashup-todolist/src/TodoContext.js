@@ -1,5 +1,5 @@
 //  useReducer()를 사용하여 상태를 관리하는 TodoProvider Component
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useRef } from 'react';
 
 const initialTodos = [
   {
@@ -68,14 +68,27 @@ export function TodoProvider({children}) {
 
 /* useContext에 직접 사용하는 대신에 useContext를 사용하는 Hook 만들어 내보내기 */
 /* 불러오거나 별도의 선언없이 Custom Hook을 만들어서 사용 */
+/* Custom Hook Error */
 export function useTodoState() {
-  return useContext(TodoStateContext);
+  const context = useContext(TodoStateContext);
+  if(!context) {
+    throw new Error('Cannot find TodoContextProvider')  /* Context가 존재하지 않을 경우 */
+  }
+  return context;
 }
 
 export function useTodoDispatch() {
-  return useContext(TodoDispatchContext);
+  const context = useContext(TodoDispatchContext);
+  if(!context) {
+    throw new Error('Cannot find TodoContextProvider')
+  }
+  return context;
 }
 
 export function useTodoNextId() {
-  return useContext(TodoNextId);
+  const context = useContext(TodoNextId);
+  if(!context) {
+    throw new Error('Cannot find TodoContextProvider')
+  }
+  return context;
 }
