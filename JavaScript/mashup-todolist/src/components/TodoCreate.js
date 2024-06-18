@@ -64,7 +64,13 @@ const InsertForm = Styled.div`
 `;
 
 const Input = Styled.input`
-    
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    box-sizing: border-box;
 `;
 
 function TodoCreate(){
@@ -78,7 +84,7 @@ function TodoCreate(){
             {open && (
                 <InsertFormPositioner>
                     <InsertForm>
-                        <Input autoFocus placeholder="할 일을 입력 후, Enter를 누르세요"/>
+                        <Input autoFocus placeholder='할 일을 입력 후, Enter를 누르세요'/>
                     </InsertForm>
                 </InsertFormPositioner>
             )}
