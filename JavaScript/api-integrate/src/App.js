@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
 import './App.css';
+import Posts from './components/Posts';
 
 function App() {
 
-  let [raw, setRaw] = useState();
+  // let [raw, setRaw] = useState();
 
   //  1. 클릭 시 비동기 통신
   // const handleClick = () => {
@@ -46,48 +47,50 @@ function App() {
   //  2. function 앞에 async 키워드를 추가. 함수는 언제나 Promise를 반환
   //  3. 리턴이 프로미스라면 await 적용하고, then을 없앨 수 있음.
 
-  const handleClick = async () => {
-    let response = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
-    /* .then(response => {
-      console.log(response.data);
-      console.log(1);
-    }); */
-    console.log(response.data);
-    setRaw(response.data);
-    console.log(1);
+  // const handleClick = async () => {
+  //   let response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+  //   /* .then(response => {
+  //     console.log(response.data);
+  //     console.log(1);
+  //   }); */
+  //   console.log(response.data);
+  //   setRaw(response.data);
+  //   console.log(1);
 
-    let response2 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
-    /* .then(response => {
-      console.log(response.data);
-      console.log(3);
-    }); */
-    console.log(response2.data);
-    setRaw(response2.data);
-    console.log(2);
+  //   let response2 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
+  //   /* .then(response => {
+  //     console.log(response.data);
+  //     console.log(3);
+  //   }); */
+  //   console.log(response2.data);
+  //   setRaw(response2.data);
+  //   console.log(2);
 
-    let response3 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
-    /* .then(response => {
-      console.log(response.data);
-      console.log(5);
-    }); */
-    console.log(response3.data);
-    setRaw(response3.data);
-    console.log(3);
-  }
-
+  //   let response3 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
+  //   /* .then(response => {
+  //     console.log(response.data);
+  //     console.log(5);
+  //   }); */
+  //   console.log(response3.data);
+  //   setRaw(response3.data);
+  //   console.log(3);
+  // }
 
   return (
+    // <div>
+    //   <h3>클릭 시 fetch로 데이터 가져오기</h3>
+    //   <button type='button' onClick={handleClick}>데이터로드</button>
+    //   {raw !== undefined ? 
+    //   <div>
+    //     {raw.userId}<br />
+    //     {raw.userPw}<br />
+    //     {raw.userName}<br />
+    //   </div>
+    //   : undefined
+    // }
+    // </div>
     <div>
-      <h3>클릭 시 fetch로 데이터 가져오기</h3>
-      <button type='button' onClick={handleClick}>데이터로드</button>
-      {raw !== undefined ? 
-      <div>
-        {raw.userId}<br />
-        {raw.userPw}<br />
-        {raw.userName}<br />
-      </div>
-      : undefined
-    }
+      <Posts />
     </div>
   );
 }
