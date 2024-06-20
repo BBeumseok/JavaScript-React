@@ -2,6 +2,8 @@ React-Router를 이용한 페이지 만들기
 
 메인 홈 : Home.js
 
+Header : Navigator 역할
+
 MyPage : MyPage.js
   => 로그인 한 사용자 정보를 출력
 

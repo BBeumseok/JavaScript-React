@@ -41,7 +41,7 @@ function Home() {
           <li>
             <Link to='/mypage?login=true'>마이 페이지로 이동</Link>
           </li>
-            
+
           
         </ul>
         <h2>홈 페이지</h2>
