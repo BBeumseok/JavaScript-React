@@ -7,15 +7,25 @@ import Info from './components/Info';
 import Board from './components/Board';
 import BoardContent from './components/BoardContent';
 import Profiles from './components/Profiles';
+import MyPage from './components/MyPage';
 
 function App() {
   return (
+    <>
+    {/* path의 모든 경로는 순차적으로 확인 후 처리 */}
     <Routes>
+      {/* useNavigate() Hook */}
       <Route path='/' element={<Home />} /> 
+
+      {/* Navigate Component */}
+      <Route path='/mypage' element={<MyPage />} />
+
+
       {/* 
         element : 어떤 컴포넌트를 보여줄지 설정해주면 된다. (태그형식) 
         Component : 컴포넌트 그 자체를 불러와야 합니다.
       */}
+
       <Route path='/user' element={<User />} />
       <Route path='/info/:num' element={<Info />} />
 
@@ -31,11 +41,14 @@ function App() {
       </Route>
 
       {/* Profile 중첩 테스트  */}
-      <Route path='/profiles' element={<Profiles />} >
+      {/* <Route path='/profiles' element={<Profiles />} >
         <Route path=':username' element={<User />} />
-      </Route>
+      </Route> */}
 
+      {/* /*(all) : 모든 경로 */} 
+      <Route path='/profiles/*' element={<Profiles />} />
       </Routes>
+      </>
   );
 }
 

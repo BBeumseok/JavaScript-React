@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useLocation, useParams, useSearchParams } from 'react-router-dom';
+import Header from './Header';
 
 /* 
   id 객체 2개를 생성합니다.   
@@ -76,6 +77,7 @@ function User() {
 
   return (
     <div>
+      <Header />
       <ul>
         <Link to='/'>홈</Link>
         <li><Link to='/info'>회원 정보 페이지</Link></li>

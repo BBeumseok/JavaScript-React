@@ -1,0 +1,12 @@
+React-Router를 이용한 페이지 만들기
+
+메인 홈 : Home.js
+
+MyPage : MyPage.js
+  => 로그인 한 사용자 정보를 출력
+
+게시판 : Board.js
+  => BoardContent.js를 통해서 게시글을 클릭하면 내용이 출력
+
+계정 정보를 위한 객체 생성
+  => 계정 정보에는 계정명, name, age, description 및 추가 내용 포함 (필요하다면)
