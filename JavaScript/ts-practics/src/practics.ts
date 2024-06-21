@@ -3,9 +3,6 @@ count += 1;
 // counst = '갑자기 문자열'    //  에러 발생 !! ... count
 //  typescript의 경우 선언 시 타입을 설정하지 않으면 처음으로 할당되는 값의 타입으로 자동 설정됨
 
-
-
-
 const message: string = 'Hello World';
 
 const done: boolean = true;   //  불리언 값
