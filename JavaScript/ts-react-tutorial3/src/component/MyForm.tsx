@@ -16,6 +16,8 @@ function MyForm({onSubmit}: MyFormProps) {
 
   const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     //  e 값이 무엇인지 모르면 타입을 any로 지정
+    //  any를 사용하는 경우 타입스크립트를 사용할 필요성이 없어짐
+    //  spread를 사용하여 값을 펼쳐놓고 바꿀 값을 수정
     const {name, value} = e.target;
     setForm({
       ...form,

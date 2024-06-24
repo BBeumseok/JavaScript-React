@@ -4,6 +4,7 @@ import React, { useReducer } from 'react';
 //  type 설정
 type Color = 'red' | 'orange' | 'violet';
 
+//  state 설정
 type State = {
   count: number;
   text: string;
@@ -12,6 +13,7 @@ type State = {
 };
 
 //  action type 설정
+//  |(pipe)를 사용하여 enum 타입처럼 사용
 type Action = 
   | {type: 'SET_COUNT'; count: number}
   | {type: 'SET_TEXT'; text: string}
@@ -52,7 +54,7 @@ const [state, dispatch] = useReducer(reducer, {
   isGood: true
 });
 
-const setCount = () => dispatch({type: 'SET_COUNT', count: 5});
+const setCount = () => dispatch({type: 'SET_COUNT', count: 1});
 const setText = () => dispatch({type: 'SET_TEXT', text: '리듀서 샘플'});
 const setColor = () => dispatch({type: 'SET_COLOR', color: 'red'});
 const setToggle = () => dispatch({type: 'TOGGLE_GOOD'});

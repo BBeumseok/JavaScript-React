@@ -4,8 +4,10 @@ import React from 'react';
 type GreetingsProps = {
   name: string;
   mark: string;
-  optional?: string
-  onClick: (name: string) => void   //  매개변수 name(문자열)을 받고, 반환값은 없음
+  optional?: string;      //  Optional Chaining
+  onClick: (name: string) => void   
+  //  매개변수 name(문자열)을 받고, 반환값은 없음
+  //  !(factorial) - non null Assertion (타입스크립트에서 사전에 에러가 발생하는 것을 방지함)
 };
 
 //  React.FC 방법은 권장하지 않는 방식
