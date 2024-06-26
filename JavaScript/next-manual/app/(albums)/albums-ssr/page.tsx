@@ -6,6 +6,9 @@
   CSR을 이용해서 모든 내용을 처리할 경우 보안 취약점에 대해 생각해봐야 할 필요가 있다.
 */
 
+import axios from 'axios';
+import Link from 'next/link';
+
 export const metadata = {
   title: 'albums-ssr',
 };
@@ -35,15 +38,23 @@ async function getPhotos() {
 
 export default async function Page() {  //  순차적으로 처리
   const albums = await getAlbums();
+  const albums10 = albums.slice(0, 10);
+  console.log(albums10);
+
   const photos = await getPhotos();
 
   return (
     <div>
       <h1>앨범즈입니다</h1>
-      {JSON.stringify(albums)}
+      {albums10.map(albums => { //  {}를 사용하는 경우 return을 넣어줘야 결과값이 반환된다.
+        return (
+          //  브라우저에서 클릭 시 해당  
+        <li key={albums.id}><Link href={'/albums-ssr/' + albums.id}>{albums.title}</Link></li>
+        );
+      })}
       <hr />
       <h1>포토즈입니다</h1>
-      {JSON.stringify(photos)}
+        {JSON.stringify(photos)}
     </div>
   );
 }

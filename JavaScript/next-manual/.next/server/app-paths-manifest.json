@@ -3,5 +3,6 @@
   "/(albums)/albums/page": "app/(albums)/albums/page.js",
   "/info/page": "app/info/page.js",
   "/(home)/page": "app/(home)/page.js",
-  "/(albums)/albums-ssr/[id]/page": "app/(albums)/albums-ssr/[id]/page.js"
+  "/(albums)/albums-ssr/[id]/page": "app/(albums)/albums-ssr/[id]/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
