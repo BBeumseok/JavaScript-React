@@ -15,50 +15,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/company/page": [
+    "/(albums)/albums-ssr/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/company/page.js"
+      "static/chunks/app/(albums)/albums-ssr/page.js"
     ],
-    "/company/layout": [
+    "/(albums)/albums/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/company/layout.js"
+      "static/chunks/app/(albums)/albums/page.js"
     ],
-    "/company/(jobs)/sales/page": [
+    "/(albums)/albums-ssr/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/company/(jobs)/sales/page.js"
+      "static/chunks/app/(albums)/albums-ssr/loading.js"
     ],
-    "/company/(jobs)/sales/layout": [
+    "/info/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/company/(jobs)/sales/layout.js"
+      "static/chunks/app/info/page.js"
     ],
-    "/company/(jobs)/layout": [
+    "/(albums)/albums-ssr/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/company/(jobs)/layout.js"
-    ],
-    "/company/(jobs)/sales/marketing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/company/(jobs)/sales/marketing/page.js"
+      "static/chunks/app/(albums)/albums-ssr/[id]/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
-    ],
-    "/(movies)/movies/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(movies)/movies/[id]/page.js"
-    ],
-    "/(movies)/movies/[id]/[title]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(movies)/movies/[id]/[title]/page.js"
     ]
   }
 }

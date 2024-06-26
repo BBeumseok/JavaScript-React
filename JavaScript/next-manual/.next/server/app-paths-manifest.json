@@ -1,7 +1,7 @@
 {
-  "/(movies)/movies/[id]/page": "app/(movies)/movies/[id]/page.js",
-  "/(movies)/movies/[id]/[title]/page": "app/(movies)/movies/[id]/[title]/page.js",
-  "/company/page": "app/company/page.js",
-  "/company/(jobs)/sales/page": "app/company/(jobs)/sales/page.js",
-  "/company/(jobs)/sales/marketing/page": "app/company/(jobs)/sales/marketing/page.js"
+  "/(albums)/albums-ssr/page": "app/(albums)/albums-ssr/page.js",
+  "/(albums)/albums/page": "app/(albums)/albums/page.js",
+  "/info/page": "app/info/page.js",
+  "/(home)/page": "app/(home)/page.js",
+  "/(albums)/albums-ssr/[id]/page": "app/(albums)/albums-ssr/[id]/page.js"
 }
