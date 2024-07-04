@@ -31,7 +31,7 @@ export default async function AlbumDetail({
   // const photos = await getPhotos(id);
   
   //  병렬 요청(Parallel Request) -> Promise.all()
-  //  병렬 요청을 통해 처리 속도를 단축 시킳 수 있음
+  //  병렬 요청을 통해 처리 속도를 단축 시킬 수 있음
   //  병렬 요청의 경우 모든 작업이 처리되기 전까지 클라이언트 측에서는 어떠한 결과도 볼 수 없으므로,
   //  서스펜스를 사용하여 병렬 처리를 하되, 각각 개별적으로 보여줄 수 있도록 변경
   // const [album, photos] = await Promise.all([getAlbum(id), getPhotos(id)]);

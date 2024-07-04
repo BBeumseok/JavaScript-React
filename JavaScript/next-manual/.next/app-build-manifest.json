@@ -15,40 +15,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/(albums)/albums-ssr/page": [
+    "/(albums)/albums-ssr/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(albums)/albums-ssr/page.js"
+      "static/chunks/app/(albums)/albums-ssr/[id]/page.js"
     ],
-    "/(albums)/albums/page": [
+    "/(albums)/albums-ssr/[id]/error": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(albums)/albums/page.js"
+      "static/chunks/app/(albums)/albums-ssr/[id]/error.js"
     ],
     "/(albums)/albums-ssr/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(albums)/albums-ssr/loading.js"
     ],
-    "/info/page": [
+    "/(albums)/albums-ssr/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/info/page.js"
-    ],
-    "/(albums)/albums-ssr/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(albums)/albums-ssr/[id]/page.js"
+      "static/chunks/app/(albums)/albums-ssr/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
-    ],
-    "/(albums)/albums-ssr/[id]/error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(albums)/albums-ssr/[id]/error.js"
     ]
   }
 }

@@ -20,8 +20,8 @@ export default async function PhotosInfo(
 
   return (
     <div>
-      <h3>Photos : </h3>
-        {/* {photos10.map(photos => {
+      {/* <h3>Photos : </h3>
+        {photos10.map(photos => {
           return (
             <li key={photos.id}>
               <Link href={photos.url}>{photos.title}</Link>
